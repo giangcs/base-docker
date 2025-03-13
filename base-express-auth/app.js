@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import logger from 'morgan';
 import mongoose from 'mongoose';
+import expressListEndpoints from 'express-list-endpoints';
 
 // Set up express app
 const app = express();
@@ -41,3 +42,6 @@ app.listen(port, (request, respond) => {
 
 import apiRouter from './src/routes/index.js';
 app.use('/api/', apiRouter);
+
+
+console.log(expressListEndpoints(app));

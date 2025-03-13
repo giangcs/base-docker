@@ -7,10 +7,14 @@ services:
     env_file:
       - base-express-auth/.env
     volumes:
-      - ./base-express-auth:/server  # Maps app folder correctly
+      - ./base-express-auth:/app  # ✅ Maps local folder to container
+      - /app/node_modules  # ✅ Prevents node_modules conflicts
     restart: unless-stopped
     depends_on:
       - mongo
+    command: [ "npm", "run", "dev" ]  # ✅ Runs nodemon
+    stdin_open: true  # ✅ Keeps the container open
+    tty: true  # ✅ Enables interactive mode
 
   mongo:
     container_name: mongodb
