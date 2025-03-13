@@ -1,0 +1,51 @@
+docker-compose up --build
+docker-compose up -d --build
+docker-compose down -v
+
+docker-compose up
+docker-compose down
+
+*Mounting a Volume:
+Linking a folder from your host machine to a container
+When to Use Volumes?
+✔ Data Persistence (Logs, databases, config files)
+✔ Code Sharing (Live-reload development)
+✔ Backing up container data
+
+* Thiết lập biến môi trường trong Docker container:
+Cách	                    Lợi ích	                                    Cách dùng
+-e khi chạy container	    Đơn giản, dễ sử dụng	                    docker run -e VAR=value my-container
+--env-file	                Load nhiều biến môi trường từ file	        docker run --env-file .env my-container
+ENV trong Dockerfile	    Cố định biến môi trường khi build           container	ENV VAR=value
+Kiểm tra biến	            Kiểm tra giá trị của biến trong container	docker exec my-container env
+
+* .dockerignore 
+Khi nào dùng .dockerignore?	                                            Lợi ích
+Khi có file không cần thiết (node_modules/, .git/, __pycache__/, .env)	🛠️ Giảm kích thước image
+Khi có file nhạy cảm (API Key, Database Credentials)	                🔒 Bảo mật tốt hơn
+Khi muốn tăng tốc độ docker build	                                    🚀 Build nhanh hơn
+
+* Multi-stage build
+Docker Multi-Stage Build là một kỹ thuật tối ưu hóa Dockerfile, trong đó chúng ta sử dụng nhiều stage để:
+-Tách biệt quá trình build và runtime, giúp giảm kích thước Docker image.
+-Chỉ copy các file cần thiết vào image cuối, loại bỏ file build hoặc dependencies không cần thiết.
+
+Lợi ích	                        Mô tả
+🛠 Giảm kích thước image	    Chỉ giữ lại file cần thiết, bỏ các file build
+🚀 Tăng tốc độ build	        Docker chỉ build phần cần thiết, không chứa dependencies thừa
+🔒 Bảo mật tốt hơn	            Không copy file nhạy cảm (.env, logs, .git) vào image cuối
+🔄 Dễ bảo trì	                Code rõ ràng, dễ dàng update hoặc debug từng stage
+
+* 
+docker swarm loadbalancing
+microservice: cac du an message, jwt ...
+persistent storage swarmkubernetes, expose service with loadbalancer
+ci/cd dockersecurity & monitoring
+optimize image size
+docker build cache
+debug container....
+restart policy
+docker compose
+apigateway & service discovery
+logging
+

@@ -1,0 +1,2 @@
+show dbs; : check DB exist
+use mydb; : create ur db
