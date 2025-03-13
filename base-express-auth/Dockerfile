@@ -7,6 +7,7 @@ WORKDIR /app
 # Copy package.json and package-lock.json if using npm
 COPY package.json package-lock.json ./
 RUN npm install
+RUN npm install -g nodemon
 
 # Copy the rest of the project files
 COPY . .
@@ -15,4 +16,4 @@ COPY . .
 EXPOSE 5000
 
 # Start the application
-CMD ["node", "app.js"]
+CMD ["npm", "run", "dev"]

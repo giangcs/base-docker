@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import logger from 'morgan';
 import mongoose from 'mongoose';
+import expressListEndpoints from 'express-list-endpoints';
 
 // Set up express app
 const app = express();
@@ -39,5 +40,8 @@ app.listen(port, (request, respond) => {
     console.log(`Our server is live on ${port}. Yay!`);
 });
 
-import mainRoutes from './server/routes/main.js';
-app.use('/api/', mainRoutes);
+import apiRouter from './src/routes/index.js';
+app.use('/api/', apiRouter);
+
+
+console.log(expressListEndpoints(app));

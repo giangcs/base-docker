@@ -1,0 +1,9 @@
+import form / const = require
+
+ReferenceError: require is not defined in ES module scope, you can use import instead
+base-express-auth  | This file is being treated as an ES module because it has a '.js'
+file extension and '/app/package.json' contains "type": "module".
+To treat it as a CommonJS script, rename it to use the '.cjs' file extension.
+
+
+js or ts file
