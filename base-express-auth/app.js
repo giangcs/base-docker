@@ -39,5 +39,5 @@ app.listen(port, (request, respond) => {
     console.log(`Our server is live on ${port}. Yay!`);
 });
 
-import mainRoutes from './server/routes/main.js';
-app.use('/api/', mainRoutes);
+import apiRouter from './src/routes/index.js';
+app.use('/api/', apiRouter);
