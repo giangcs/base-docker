@@ -1,0 +1,4 @@
+remove reduntdane DONE
+remove mongo log too much DONE
+cahnge the app dir DONE
+ts hay js
